@@ -1,0 +1,33 @@
+    ---
+- name: Backup Configs Over Network
+  hosts: cisco_routers
+  gather_facts: no
+
+
+
+  tasks:
+    - name: Retrieve hostname from router
+      ios_command:
+        commands:
+          - show running-config | include hostname
+      register: hostname_output
+
+    - name: Extract hostname
+      set_fact:
+        backup_filename: "{{ hostname_output.stdout[0].split()[1] }}"
+
+
+    - name: Retrieve Running Config From Router
+      ios_command:
+        commands: "show running-config "
+      register: running_config
+
+    - name: Copy Running Config To Server
+      copy:
+        content: "{{ running_config.stdout[0] }}"
+        dest: "/root/DevOps\ Projects/Router\ Backups/{{ backup_filename }}"
+
+
+    - name: Show Backup Result
+      debug:
+        msg: "Configs backed up and saved as {{ backup_filename }} in /root/DevOps\ Projects/Router\ Backups/"
