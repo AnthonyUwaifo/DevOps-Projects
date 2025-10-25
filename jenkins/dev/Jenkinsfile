@@ -1,0 +1,39 @@
+pipeline {
+    agent { 
+        node {
+            label 'docker-agent-alpine'
+            }
+      }
+    triggers {
+        pollSCM '* * * * *'
+    }
+    stages {
+        stage('Build') {
+            steps {
+                echo "Building.."
+                sh '''
+                touch requirements.txt
+                echo "Writing something to test this automated pipeline" > requirements.txt
+                '''
+            }
+        }
+        stage('Test') {
+            steps {
+                echo "Testing.."
+                sh '''
+                touch deliverables.txt
+                echo "Writing something else to test this automated pipeline" > deliverables.txt
+                '''
+            }
+        }
+        stage('Deliver') {
+            steps {
+                echo 'Deliver....'
+                sh '''
+                touch logs.txt
+                echo "Created this log to say 'Build was successfull'" > logs.txt
+                '''
+            }
+        }
+    }
+}
