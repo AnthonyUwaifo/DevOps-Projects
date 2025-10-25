@@ -13,7 +13,7 @@ pipeline {
                 echo "Building.."
                 sh '''
                 touch requirements.txt
-                echo "Writing something to test this automated pipeline" > requirements.txt
+                echo "Created this requirement to test this automated pipeline" > requirements.txt
                 '''
             }
         }
@@ -22,7 +22,7 @@ pipeline {
                 echo "Testing.."
                 sh '''
                 touch deliverables.txt
-                echo "Writing something else to test this automated pipeline" > deliverables.txt
+                echo "Created this to deliverable to test this automated pipeline" > deliverables.txt
                 '''
             }
         }
