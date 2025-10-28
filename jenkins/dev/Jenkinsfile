@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "Building.."
+                echo "Building..."
                 sh '''
                 touch requirements.txt
                 echo "Created this requirement to test this automated pipeline" > requirements.txt
@@ -19,19 +19,19 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo "Testing.."
+                echo "Testing..."
                 sh '''
                 touch deliverables.txt
                 echo "Created this to deliverable to test this automated pipeline" > deliverables.txt
                 '''
             }
         }
-        stage('Deliver') {
+        stage('Delivery') {
             steps {
-                echo 'Deliver....'
+                echo 'Delivery....'
                 sh '''
                 touch logs.txt
-                echo "Created this log to say 'Build was successfull'" > logs.txt
+                echo "Created this log to say 'Build was successful'" > logs.txt
                 '''
             }
         }
