@@ -28,7 +28,7 @@ pipeline {
         }
         stage('Delivery') {
             steps {
-                echo 'Delivery....'
+                echo 'Delivery...'
                 sh '''
                 touch logs.txt
                 echo "Created this log to say 'Build was successful'" > logs.txt
