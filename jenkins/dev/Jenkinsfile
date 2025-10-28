@@ -22,7 +22,7 @@ pipeline {
                 echo "Testing..."
                 sh '''
                 touch deliverables.txt
-                echo "Created this to deliverable to test this automated pipeline" > deliverables.txt
+                echo "Created this deliverable to test this automated pipeline" > deliverables.txt
                 '''
             }
         }
