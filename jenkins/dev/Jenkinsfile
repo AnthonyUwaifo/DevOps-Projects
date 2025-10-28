@@ -31,7 +31,7 @@ pipeline {
                 echo 'Delivery...'
                 sh '''
                 touch logs.txt
-                echo "Created this log to say 'Build was successful'" > logs.txt
+                echo "Created this log to say 'Build was successful!'" > logs.txt
                 '''
             }
         }
