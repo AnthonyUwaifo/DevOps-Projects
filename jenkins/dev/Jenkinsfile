@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo "Building..."
                 sh '''
-                touch /var/jenkins_home/requirements.txt
+                touch requirements.txt
                 echo "Created this requirement to test this automated pipeline" > requirements.txt
                 '''
             }
@@ -21,7 +21,7 @@ pipeline {
             steps {
                 echo "Testing..."
                 sh '''
-                touch /var/jenkins_home/deliverables.txt
+                touch deliverables.txt
                 echo "Created this deliverable to test this automated pipeline" > deliverables.txt
                 '''
             }
@@ -30,7 +30,7 @@ pipeline {
             steps {
                 echo 'Delivery...'
                 sh '''
-                touch /var/jenkins_home/logs.txt
+                touch logs.txt
                 echo "Created this log to say 'Build was successful'" > logs.txt
                 '''
             }
